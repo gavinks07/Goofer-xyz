@@ -19,41 +19,42 @@
 
     .container {
       background-color: #007bff;
-      padding: 20px;
+      padding: 40px;
       border-radius: 4px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       color: #ffffff;
-      max-width: 90%;
-      width: 400px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center; /* Center the content horizontally */
     }
 
     h1 {
       color: #ffffff;
       text-align: center;
       margin-top: 0;
-      font-size: 24px;
+      font-size: 28px;
     }
 
     label {
       display: block;
-      margin-top: 10px;
-      font-size: 16px;
+      margin-top: 20px;
+      font-size: 20px;
     }
 
     input[type="text"],
     textarea {
       width: 100%;
-      padding: 8px;
-      font-size: 16px;
+      padding: 10px;
+      font-size: 20px;
       border: 1px solid #cccccc;
       border-radius: 4px;
       box-sizing: border-box;
     }
 
     button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      font-size: 16px;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 20px;
       background-color: #ff5c5c;
       color: #ffffff;
       border: none;
@@ -68,10 +69,10 @@
 
     #output {
       width: 100%;
-      height: 100px;
-      margin-top: 10px;
-      padding: 8px;
-      font-size: 16px;
+      height: 150px;
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 20px;
       border: 1px solid #cccccc;
       border-radius: 4px;
       box-sizing: border-box;
@@ -79,6 +80,7 @@
     }
 
     .instructions {
+      margin-top: 20px;
       font-size: 14px;
       color: #ffffff;
       text-align: left;
@@ -100,9 +102,7 @@
     }
 
     .version {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
+      margin-top: 20px;
       font-size: 14px;
       color: #ffffff;
       text-align: left;
@@ -130,21 +130,21 @@
 
     <label for="output">Output:</label>
     <textarea id="output" rows="5" cols="50"></textarea>
-  </div>
 
-  <div class="instructions">
-    <h2>Add to Home Screen</h2>
-    <ol>
-      <li>Tap the Share icon on the website.</li>
-      <li>Select "Add to Home Screen".</li>
-      <li>Tap "Add" or "Install" to finish the installation.</li>
-      <li>Find the app icon on your home screen.</li>
-      <li>Tap the app icon to open the website as an app.</li>
-    </ol>
-  </div>
+    <div class="instructions">
+      <h2>Add to Home Screen</h2>
+      <ol>
+        <li>Tap the Share icon on the website.</li>
+        <li>Select "Add to Home Screen".</li>
+        <li>Tap "Add" or "Install" to finish the installation.</li>
+        <li>Find the app icon on your home screen.</li>
+        <li>Tap the app icon to open the website as an app.</li>
+      </ol>
+    </div>
 
-  <div class="version">
-    <p>Ver. 1.0</p>
+    <div class="version">
+      <p>Ver. 1.0</p>
+    </div>
   </div>
 
   <script src="script.js"></script>
