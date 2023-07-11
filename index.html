@@ -2,7 +2,7 @@
 <html>
 <head>
   <link rel="manifest" href="manifest.json" />
-  <title>Text Scrambler/Decrypter</title>
+  <title>Goofer.xyz</title>
   <meta name="theme-color" content="#007bff">
   <link rel="apple-touch-icon" href="icon-192x192.png">
   <style>
@@ -14,6 +14,7 @@
       align-items: center;
       height: 100vh;
       margin: 0; /* Reset default margin */
+      position: relative; /* Add relative positioning */
     }
 
     .container {
@@ -76,11 +77,44 @@
       box-sizing: border-box; /* Include padding in the height calculation */
       resize: vertical; /* Allow vertical resizing of the textarea */
     }
+
+    .instructions {
+      position: absolute;
+      bottom: 10px; /* Adjust bottom position */
+      right: 10px; /* Adjust right position */
+      font-size: 14px; /* Adjust font size */
+      color: #ffffff;
+      text-align: right; /* Align the instructions to the right */
+    }
+
+    .instructions ol {
+      padding-left: 20px; /* Add left padding to create space for numbers */
+    }
+
+    .instructions ol li {
+      counter-increment: step-counter; /* Increment the counter */
+      list-style: none; /* Remove default list style */
+      margin-bottom: 10px; /* Add margin between list items */
+    }
+
+    .instructions ol li:before {
+      content: counter(step-counter) ". "; /* Add counter value and period */
+      color: #ffffff; /* Set the color of the counter */
+    }
+
+    .version {
+      position: absolute;
+      bottom: 10px; /* Adjust bottom position */
+      left: 10px; /* Adjust left position */
+      font-size: 14px; /* Adjust font size */
+      color: #ffffff;
+      text-align: left; /* Align the version to the left */
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Text Scrambler/Decrypter</h1>
+    <h1>Goofer.xyz</h1>
 
     <label for="text-input">Text:</label>
     <input type="text" id="text-input" />
@@ -93,6 +127,21 @@
 
     <label for="output">Output:</label>
     <textarea id="output" rows="5" cols="50"></textarea>
+  </div>
+
+  <div class="instructions">
+    <h2>Add to Home Screen</h2>
+    <ol>
+      <li>Tap the Share icon on the website.</li>
+      <li>Select "Add to Home Screen".</li>
+      <li>Tap "Add" or "Install" to finish the installation.</li>
+      <li>Find the app icon on your home screen.</li>
+      <li>Tap the app icon to open the website as an app.</li>
+    </ol>
+  </div>
+
+  <div class="version">
+    <p>Ver. 1.0</p>
   </div>
 
   <script src="script.js"></script>
