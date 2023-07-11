@@ -3,8 +3,8 @@
   "short_name": "Goofer.xyz",
   "start_url": "https://gavinks07.github.io/Goofer-xyz/index.html",
   "display": "standalone",
-  "background_color": "#4f0000",
-  "theme_color": "#007bff",
+  "background_color": "##007bff",
+  "theme_color": "#4f0000",
   "icons": [
     {
       "src": "icon-192x192.png",
