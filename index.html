@@ -79,11 +79,12 @@
       resize: vertical;
     }
 
-    .copy-button {
-      margin-top: 10px; /* Adjust margin as needed */
+    .copy-button,
+    .paste-button {
+      margin-top: 10px;
       padding: 10px 20px;
       font-size: 20px;
-      background-color: #b80000; /* Use dark red color */
+      background-color: #b80000;
       color: #ffffff;
       border: none;
       border-radius: 4px;
@@ -91,8 +92,9 @@
       width: 100%;
     }
 
-    .copy-button:hover {
-      background-color: #990000; /* Adjust hover color */
+    .copy-button:hover,
+    .paste-button:hover {
+      background-color: #990000;
     }
 
     .instructions {
@@ -136,7 +138,10 @@
     <h1>Goofer.xyz</h1>
 
     <label for="text-input">Text:</label>
-    <input type="text" id="text-input" />
+    <div>
+      <input type="text" id="text-input" />
+      <button class="paste-button" onclick="pasteText()">Paste</button>
+    </div>
 
     <label for="key-input">Key:</label>
     <input type="text" id="key-input" />
@@ -167,37 +172,14 @@
 
   <script src="script.js"></script>
   <script>
-    function showCopyOptions() {
-      var options = ["(link (goofer.xyz))", "(key)", "(output)"];
-      var selectedOption = prompt("Copy:", options.join("\n"));
-      if (selectedOption) {
-        var output = document.getElementById("output");
-        var keyInput = document.getElementById("key-input");
-
-        switch (selectedOption) {
-          case "(link (goofer.xyz))":
-            copyText("goofer.xyz");
-            break;
-          case "(key)":
-            copyText(keyInput.value);
-            break;
-          case "(output)":
-            copyText(output.value);
-            break;
-        }
-      }
+    function pasteText() {
+      navigator.clipboard.readText().then(function (text) {
+        var textInput = document.getElementById("text-input");
+        textInput.value = text;
+      });
     }
 
-    function copyText(text) {
-      var tempInput = document.createElement("input");
-      tempInput.style.opacity = 0;
-      tempInput.value = text;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempInput);
-      alert("Copied to clipboard!");
-    }
+    // Rest of your existing JavaScript code...
   </script>
 </body>
 </html>
