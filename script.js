@@ -3,7 +3,7 @@ const validCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !"
 function scramble() {
   const textInput = document.getElementById('text-input').value;
   const keyInput = document.getElementById('key-input').value;
-  const resultTextarea = document.getElementById('result');
+  const resultTextarea = document.getElementById('output');
 
   const scrambledText = encryptText(textInput, keyInput);
   resultTextarea.value = scrambledText;
@@ -12,7 +12,7 @@ function scramble() {
 function decrypt() {
   const textInput = document.getElementById('text-input').value;
   const keyInput = document.getElementById('key-input').value;
-  const resultTextarea = document.getElementById('result');
+  const resultTextarea = document.getElementById('output');
 
   const decryptedText = decryptText(textInput, keyInput);
   resultTextarea.value = decryptedText;
@@ -22,7 +22,6 @@ function encryptText(text, key) {
   let result = '';
   for (let i = 0; i < text.length; i++) {
     const char = text[i];
-    const charCode = char.charCodeAt(0);
 
     // Skip characters that are not in the validCharacters string
     if (!validCharacters.includes(char)) {
