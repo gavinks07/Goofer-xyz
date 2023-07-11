@@ -79,6 +79,16 @@
       resize: vertical;
     }
 
+    .copy-button {
+      margin-top: 10px; /* Adjust margin as needed */
+      font-size: 14px;
+      color: #ffffff;
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
     .instructions {
       margin-top: 20px;
       font-size: 14px;
@@ -131,6 +141,8 @@
     <label for="output">Output:</label>
     <textarea id="output" rows="5" cols="50"></textarea>
 
+    <button class="copy-button" onclick="copyOutput()">Copy Output</button>
+
     <div class="instructions">
       <h2>Add to Home Screen</h2>
       <ol>
@@ -148,5 +160,13 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    function copyOutput() {
+      var output = document.getElementById("output");
+      output.select();
+      document.execCommand("copy");
+      alert("Copied to clipboard!");
+    }
+  </script>
 </body>
 </html>
