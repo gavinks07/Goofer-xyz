@@ -20,12 +20,99 @@
     .container {
       background-color: #007bff;
       padding: 40px;
-      border-radius: 4px;
+      border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       color: #ffffff;
       max-width: 400px;
       width: 90%;
       text-align: center; /* Center the content horizontally */
+      position: relative;
+    }
+
+    .updates-button {
+      position: absolute;
+      top: 20px;
+      right: 55px;
+      width: 30px;
+      height: 30px;
+      background-color: #ff5c5c;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .updates-button:hover {
+      background-color: #b80000;
+    }
+
+    .updates-popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .updates-popup-content {
+      background-color: #007bff;
+      padding: 20px;
+      border-radius: 8px;
+      color: #ffffff;
+      text-align: center;
+      max-width: 300px;
+      width: 90%;
+    }
+
+    .updates-popup-content h2 {
+      margin-top: 0;
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .updates-popup-content p {
+      margin: 0;
+      font-size: 16px;
+      color: #ffffff;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .updates-popup-content ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      text-align: left;
+    }
+
+    .updates-popup-content ul li {
+      margin-bottom: 10px;
+    }
+
+    .updates-popup-content button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff5c5c;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .updates-popup-content button:active {
+      background-color: #b80000;
     }
 
     h1 {
@@ -33,12 +120,15 @@
       text-align: center;
       margin-top: 0;
       font-size: 28px;
+      margin-bottom: 30px;
     }
 
     label {
       display: block;
       margin-top: 20px;
       font-size: 20px;
+      text-align: left;
+      color: #ffffff;
     }
 
     input[type="text"],
@@ -46,8 +136,9 @@
       width: 100%;
       padding: 10px;
       font-size: 20px;
-      border: 1px solid #cccccc;
+      border: none;
       border-radius: 4px;
+      background-color: #ffffff;
       box-sizing: border-box;
     }
 
@@ -61,6 +152,7 @@
       border-radius: 4px;
       cursor: pointer;
       width: 100%;
+      transition: background-color 0.3s;
     }
 
     button:hover {
@@ -73,8 +165,9 @@
       margin-top: 20px;
       padding: 10px;
       font-size: 20px;
-      border: 1px solid #cccccc;
+      border: none;
       border-radius: 4px;
+      background-color: #ffffff;
       box-sizing: border-box;
       resize: vertical;
     }
@@ -83,35 +176,6 @@
       #output {
         height: 100px;
       }
-    }
-
-    .instructions {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #ffffff;
-      text-align: left;
-    }
-
-    .instructions ol {
-      padding-left: 20px;
-    }
-
-    .instructions ol li {
-      counter-increment: step-counter;
-      list-style: none;
-      margin-bottom: 10px;
-    }
-
-    .instructions ol li:before {
-      content: counter(step-counter) ". ";
-      color: #ffffff;
-    }
-
-    .version {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #ffffff;
-      text-align: left;
     }
 
     .copy-button {
@@ -124,6 +188,7 @@
       border-radius: 4px;
       cursor: pointer;
       width: 100%;
+      transition: background-color 0.3s;
     }
 
     .copy-button:hover {
@@ -146,9 +211,9 @@
     .copy-popup-content {
       background-color: #007bff;
       padding: 20px;
-      border-radius: 4px;
+      border-radius: 8px;
       color: #ffffff;
-      text-align: left;
+      text-align: center;
       max-width: 300px;
       width: 90%;
     }
@@ -157,6 +222,7 @@
       margin-top: 0;
       font-size: 20px;
       text-align: center;
+      margin-bottom: 20px;
     }
 
     .copy-popup-content label {
@@ -164,6 +230,7 @@
       margin-top: 10px;
       font-size: 16px;
       color: #ffffff;
+      text-align: left;
     }
 
     .copy-popup-content .options {
@@ -186,9 +253,103 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
 
     .copy-popup-content button:active {
+      background-color: #b80000;
+    }
+
+    .add-to-home-popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .add-to-home-popup-content {
+      background-color: #007bff;
+      padding: 20px;
+      border-radius: 8px;
+      color: #ffffff;
+      text-align: center;
+      max-width: 300px;
+      width: 90%;
+    }
+
+    .add-to-home-popup-content h2 {
+      margin-top: 0;
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .add-to-home-popup-content p {
+      margin: 0;
+      font-size: 16px;
+      color: #ffffff;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .add-to-home-popup-content button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff5c5c;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .add-to-home-popup-content button:active {
+      background-color: #b80000;
+    }
+
+    .version {
+      position: absolute;
+      top: 30px;
+      left: 20px;
+      font-size: 14px;
+      color: #ffffff;
+      text-align: left;
+    }
+
+    .version p {
+      margin: 0;
+      padding-right: 20px;
+    }
+
+    .add-to-home-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 30px;
+      background-color: #ff5c5c;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .add-to-home-button:hover {
+      background-color: #b80000;
+    }
+
+    .add-to-home-button:hover {
       background-color: #b80000;
     }
   </style>
@@ -232,19 +393,41 @@
       </div>
     </div>
 
-    <div class="instructions">
-      <h2>Add to Home Screen</h2>
-      <ol>
-        <li>Tap the Share icon on the website.</li>
-        <li>Select "Add to Home Screen".</li>
-        <li>Tap "Add" or "Install" to finish the installation.</li>
-        <li>Find the app icon on your home screen.</li>
-        <li>Tap the app icon to open the website as an app.</li>
-      </ol>
+    <div class="version">
+      <p>Ver. 1.1.2</p>
     </div>
 
-    <div class="version">
-      <p>Ver. 1.1</p>
+    <div class="add-to-home-button" onclick="showAddToHomePopup()">+</div>
+
+    <div class="add-to-home-popup-overlay" id="addToHomePopupOverlay">
+      <div class="add-to-home-popup-content">
+        <h2>Add to Home Screen</h2>
+        <p>Follow these steps to add Goofer.xyz to your home screen:</p>
+        <ol>
+          <li>Tap the Share icon on the website.</li>
+          <li>Select "Add to Home Screen".</li>
+          <li>Tap "Add" or "Install" to finish the installation.</li>
+          <li>Find the app icon on your home screen.</li>
+          <li>Tap the app icon to open the website as an app.</li>
+        </ol>
+        <button onclick="hideAddToHomePopup()">OK</button>
+      </div>
+    </div>
+
+    <div class="updates-button" onclick="showUpdatesPopup()">!</div>
+
+    <div class="updates-popup-overlay" id="updatesPopupOverlay">
+      <div class="updates-popup-content">
+        <h2>Ver. 1.1.2 Updates</h2>
+        <ul>
+          <li>Improved user interface.</li>
+          <li>Added Copy Feature</li>
+          <li>Bug fixes and performance enhancements.</li>
+          <li>Added Numbers 0-9</li>
+          <li>Added Spanish characters</li>
+        </ul>
+        <button onclick="hideUpdatesPopup()">OK</button>
+      </div>
     </div>
   </div>
 
@@ -276,9 +459,6 @@
         textToCopy += output + '\n';
       }
 
-      const mainOutput = document.getElementById('output');
-      mainOutput.value = textToCopy.trim();
-
       navigator.clipboard.writeText(textToCopy.trim())
         .then(() => {
           alert('Copied:\n' + textToCopy);
@@ -292,6 +472,26 @@
     function hideCopyPopup() {
       const copyPopupOverlay = document.getElementById('copyPopupOverlay');
       copyPopupOverlay.style.display = 'none';
+    }
+
+    function showAddToHomePopup() {
+      const addToHomePopupOverlay = document.getElementById('addToHomePopupOverlay');
+      addToHomePopupOverlay.style.display = 'flex';
+    }
+
+    function hideAddToHomePopup() {
+      const addToHomePopupOverlay = document.getElementById('addToHomePopupOverlay');
+      addToHomePopupOverlay.style.display = 'none';
+    }
+
+    function showUpdatesPopup() {
+      const updatesPopupOverlay = document.getElementById('updatesPopupOverlay');
+      updatesPopupOverlay.style.display = 'flex';
+    }
+
+    function hideUpdatesPopup() {
+      const updatesPopupOverlay = document.getElementById('updatesPopupOverlay');
+      updatesPopupOverlay.style.display = 'none';
     }
   </script>
 </body>
